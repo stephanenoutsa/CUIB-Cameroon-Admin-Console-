@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
         $errors = array();
         
         foreach ($tokens as $token) {
-            $to = str_replace("\"", "", $token['name']);
+            $to = str_replace("\"", "", $token['value']);
             $msg = create_json_message($to, $title, $body);
             if (send_message($msg)) {
                 $message = '';
