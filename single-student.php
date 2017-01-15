@@ -346,7 +346,7 @@ if (isset($_POST['upload'])) {
     }
     
     if (empty($failed)) {
-        $url = 'http://192.168.43.170/cuib/' . $encoded_path;
+        $url = 'http://192.168.43.210/cuib/' . $encoded_path;
         $results = create_json_results($year, $semester, $_SESSION['student-matricule'], $url);
         
         if (add_results($results)) {
