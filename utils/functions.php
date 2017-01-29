@@ -160,3 +160,10 @@ function string_to_array($string) {
     
     return $new_array;
 }
+
+// Calculate expected revenue for schools from payments
+function expected_revenue($count) {
+    $revenue = $count * 600 * 0.3;
+    
+    return $revenue;
+}

@@ -59,6 +59,12 @@ switch ($uri) {
     case '/cuib/single-user.php?c=' . $id:
         $g = true;
         break;
+    case '/cuib/payments.php':
+        $h = true;
+        break;
+    case 'cuib/single-payment.php?c=' . $id:
+        $h = true;
+        break;
 }
 ?>
 
@@ -138,6 +144,13 @@ switch ($uri) {
                     <li><a class="" href="users.php">All Users</a></li>
                     <li><a class="" href="new-user.php">New User</a></li>
                 </ul>
+            </li>
+            
+            <li class="<?php if (isset($h) && $h == true) {echo 'active';} else {echo 'sub-menu';}?>">
+                <a class="" href="payments.php">
+                    <i class="fa fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
             </li>
 
         </ul>

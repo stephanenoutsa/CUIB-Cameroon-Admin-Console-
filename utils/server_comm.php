@@ -842,3 +842,45 @@ function add_results($results) {
 /**
  * End of functions for Results model
  */
+
+/**
+ * Start of functions for Payment model
+ */
+// Get all payments from remote server
+function get_all_payments() {
+    $url = $_SESSION['url'];
+    $curl = curl_init($url . 'payments');
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_HTTPHEADER,
+            array("Content-type: application/json"));
+
+    $result = curl_exec($curl);
+    $payments = json_decode($result, true);
+    
+    return $payments;
+}
+
+// Get single payment from remote server
+function get_payment($id) {
+    $url = $_SESSION['url'];
+    $curl = curl_init($url . 'payments/' . $id);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_HTTPHEADER,
+            array("Content-type: application/json"));
+    curl_setopt($curl, CURLOPT_HEADER, 0);
+    curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, 'GET' );
+
+    $result = curl_exec($curl);
+    
+    if (curl_errno($curl)) {
+        $payment = array();
+        return $payment;
+    }
+    
+    $payment = json_decode($result, true);
+    
+    return $payment;
+}
+/**
+ * End of functions for Payment model
+ */
