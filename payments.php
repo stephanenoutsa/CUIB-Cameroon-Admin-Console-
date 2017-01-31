@@ -32,7 +32,6 @@ if (!$a) {
                 <section class="panel">
                     <?php
                     $payments = get_all_payments();
-                    $pays = array_reverse($payments);
                     echo '<div id="payments" class="panel-body bio-graph-info">';
                     echo 'Count: <b>' . sizeof($payments) . '</b><br>';
                     echo 'Expected revenue: <b>' . expected_revenue(sizeof($payments)) . ' FCFA</b>';
@@ -43,7 +42,7 @@ if (!$a) {
                         echo '</ol>';
                     } else {
                         echo '<ul>';
-                        foreach ($pays as $p) {
+                        foreach ($payments as $p) {
                             $id = $p['id'];
                             $date = $p['date'];
                             $amount = $p['amount'];
